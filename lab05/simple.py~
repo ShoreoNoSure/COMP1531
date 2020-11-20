@@ -1,0 +1,46 @@
+from flask import Flask, request
+from json import dumps
+
+app = Flask(__name__)
+
+'''
+- POST add name
+- GET return names list
+- DELETE delete certain name
+'''
+dataStore = {}
+
+def getStore():
+    global dataStore
+    return dataStore
+
+def resetStore():
+    global dataStore
+    dataStore = {
+        'names': []
+    }
+  
+@app.route("/name/add", methods=['POST'])
+def nameadd():
+    data = request.get_json()
+    store = getStore()  
+    store['names'].append(data['name'])
+    return dumps({})
+    
+@app.route("/names", methods=['GET']) 
+def names():
+    store = getStore()
+    return dumps({
+        'names': store['names']
+    })
+    
+@app.route("/name/remove", methods=['DELETE'])   
+def nameremove():
+    delete = request.get_json()
+    store = getStore()    
+    del delete['name']
+    return dumps({})
+    
+if __name__ == "__main__":
+    resetStore()
+    app.run(port=89639)
