@@ -1,0 +1,32 @@
+import sys
+
+from roman import roman
+
+if __name__ == '__main__':
+	print(roman('II'))          # 2
+	print(roman('IV'))          # 4
+	print(roman('IX'))          # 9
+	print(roman('XIX'))         # 19
+	print(roman('XX'))          # 20
+	print(roman('MDCCLXXVI'))   # 1776
+	print(roman('MMXIX'))       # 2019
+	
+def test_single():
+    assert roman('M') == 1000
+    assert roman('D') == 500
+    assert roman('C') == 100
+
+def test_add_only():
+    assert roman("CC") == 200
+    assert roman("MDXI") == 1511
+    assert roman("MMCCCXXIII") == 2323
+    
+def test_minus_only():
+    assert roman("IM") == 999
+    assert roman("XC") == 90
+    assert roman("VD") == 495
+
+def test_mixed():
+    
+    
+    
