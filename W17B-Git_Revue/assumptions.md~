@@ -1,0 +1,32 @@
+ For all files:
+ - When testing functions, it is assumed that all other functions work.
+ 
+ In user.py:
+ - For the user_profile_setname function I am assuming that if the cases where the input for either the first or last name is too short or long is detected, then any combination of these for both names would also be detected and therefore does not need any further testing.
+ 
+ In channels.py:
+ - For the channels_create, channels_listall and channels_list functions I am assuming that a valid token will always be given.
+
+ - For channels_list I'm assuming you cannot see Public or Private channels that you are not in
+ - For channels_listall I'm assuming you cannot see Private channels that you are not in
+ - For channels_create I'm assuming a channel's name will always have an input
+ - For channels_create I'm assuming two channels can have the same name
+ 
+ In channel.py:
+ - For channel_invite I assume that the same person cannot be invited more than once since that person will automatically join the channel after the first invitation.
+ 
+ 
+ In other.py:
+ - For users_all it shows users even if they are logged out
+ - For search I'm assuming that the search function can be called even if there have been no messages made in any channel
+ - For search I'm assuming the query string will always have an input
+ - For search I'm assuming the query string is not case sensitive
+ - For search I'm assuming if the query string exists within a word of a message, it will be returned (eg if the query string is 'o' and the message is 'hello' the message will be retured)
+ 
+ In message.py:
+ - For message functions I assume that when another user is created there will be a new u_id 
+ - For message functions I assume different messages have different ids
+ - For message functions I assume that message ids are in ascending order of their sending no matter what channel they were sent in
+ 
+ In auth.py:
+  - For Auth functions I always assume there is an input
